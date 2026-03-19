@@ -11,12 +11,11 @@ app = FastAPI(title="Task Management API")
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],  # 🔥 FIX
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # Routers
 app.include_router(tasks.router, prefix="/api/tasks", tags=["tasks"])
 app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
