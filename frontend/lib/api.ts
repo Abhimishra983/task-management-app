@@ -36,13 +36,13 @@ export const api = {
     params.append('username', username);
     params.append('password', password);
 
-    const response = await axiosInstance.post('/auth/token', params, {
+    const response = await axiosInstance.post('/auth/login', params, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
 
-    return response.data; // should return { access_token, token_type }
+    return response.data;
   },
 
   // 📋 GET TASKS
